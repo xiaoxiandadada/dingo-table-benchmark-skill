@@ -1,0 +1,130 @@
+{
+  "snapshot_date": "2026-10-27",
+  "dataset_description": "30 business difficult table crops; private source images excluded",
+  "gold_version": "v2",
+  "gold_sha256": "b12424d1960f61f627279d7fc9f3de3ac6f01a400a671c5a7b4b703326566fcf",
+  "protocol": "v1: strip section wrappers and presentation tags, th→td, whitespace collapse, br→space; concatenate table panels in order; truncated/missing/invalid=0; graphics excluded",
+  "baseline_output_limit_deepseek": 4096,
+  "summary": [
+    {
+      "model": "deepseek-ocr",
+      "samples": 30,
+      "TEDS": 80.26204951136035,
+      "S_TEDS": 85.3237556599834,
+      "non_ok": 1
+    },
+    {
+      "model": "mineru-official",
+      "samples": 30,
+      "TEDS": 91.03946222709092,
+      "S_TEDS": 93.69682740910929,
+      "non_ok": 0
+    },
+    {
+      "model": "paddleocr-vl-1.5",
+      "samples": 30,
+      "TEDS": 81.20890212440197,
+      "S_TEDS": 88.10277663462998,
+      "non_ok": 0
+    },
+    {
+      "model": "unitable",
+      "samples": 30,
+      "TEDS": 64.3195672528494,
+      "S_TEDS": 91.73008475112285,
+      "non_ok": 0
+    },
+    {
+      "model": "trivia-3b-mps-1mp",
+      "samples": 30,
+      "TEDS": 92.92064591274145,
+      "S_TEDS": 94.73150097480085,
+      "non_ok": 0
+    },
+    {
+      "model": "dots-ocr-mps-bf16-1mp",
+      "samples": 30,
+      "TEDS": 86.5196711475656,
+      "S_TEDS": 89.4200866045778,
+      "non_ok": 0
+    }
+  ],
+  "performance": [
+    {
+      "model": "deepseek-ocr",
+      "returned": 30,
+      "timed_samples": 30,
+      "mean_seconds": 5.911862255500002,
+      "median_seconds": 4.960454749499995,
+      "max_seconds": 18.201870375000002,
+      "max_recorded_process_rss_bytes": null,
+      "timing_scope": "API request wall time including network; excludes initial rejected parameter probe"
+    },
+    {
+      "model": "mineru-official",
+      "returned": 30,
+      "timed_samples": 0,
+      "mean_seconds": null,
+      "median_seconds": null,
+      "max_seconds": null,
+      "max_recorded_process_rss_bytes": null,
+      "timing_scope": "not instrumented; cannot recover exact latency"
+    },
+    {
+      "model": "paddleocr-vl-1.5",
+      "returned": 30,
+      "timed_samples": 29,
+      "mean_seconds": 62.602844394486524,
+      "median_seconds": 61.35284185409546,
+      "max_seconds": 182.5829782485962,
+      "max_recorded_process_rss_bytes": null,
+      "timing_scope": "submit to polling observation (includes queue, polling delay; first sample missing)"
+    },
+    {
+      "model": "unitable",
+      "returned": 30,
+      "timed_samples": 30,
+      "mean_seconds": 28.34783530694743,
+      "median_seconds": 19.874150624964386,
+      "max_seconds": 101.56494420813397,
+      "max_recorded_process_rss_bytes": null,
+      "timing_scope": "local generation/stage execution; excludes model loading"
+    },
+    {
+      "model": "trivia-3b-mps-1mp",
+      "returned": 30,
+      "timed_samples": 30,
+      "mean_seconds": 102.56965917776883,
+      "median_seconds": 88.64874477102421,
+      "max_seconds": 238.61707375000697,
+      "mean_wall_seconds_including_load": 139.84680916468304,
+      "timing_scope": "Local MPS generation only; separate process per image; loading/processing excluded from inference time",
+      "fees": null,
+      "server_memory": null
+    },
+    {
+      "model": "dots-ocr-mps-bf16-1mp",
+      "returned": 30,
+      "timed_samples": 30,
+      "mean_seconds": 134.900556074987,
+      "median_seconds": 134.26710845791968,
+      "max_seconds": 267.63005249993876,
+      "mean_wall_seconds_including_load": 147.2730247338613,
+      "timing_scope": "Local MPS generation only; separate process per image; loading/processing excluded from inference time",
+      "fees": null,
+      "server_memory": null
+    }
+  ],
+  "limitations": [
+    "Not official leaderboard; not independent human-certified gold.",
+    "Later review contains unresolved gold concerns; scores are a historical v2 snapshot.",
+    "Hosted backend version for MinerU not verified; user provisionally labels it 2.5 Pro.",
+    "Different latency scopes; Paddle timing covers 29 samples, MinerU unavailable."
+  ],
+  "review_summary": {
+    "model_outputs": 180,
+    "with_high_confidence_findings": 119,
+    "without_high_confidence_findings": 61,
+    "method": "Astra assisted with assistant spot checks; one direct assistant review"
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dingo 表格评测"
+  short_description: "从问题表裁剪到金标复核、六模型评测和飞书图像对照的可复用流程"
+  default_prompt: "使用 $dingo-table-benchmark 构建问题表数据集，复核金标准并生成模型图像对照。"

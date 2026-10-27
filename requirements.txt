@@ -1,0 +1,5 @@
+PyMuPDF>=1.24
+lxml>=5
+weasyprint>=62
+apted>=1.0.3
+distance>=0.1.3
