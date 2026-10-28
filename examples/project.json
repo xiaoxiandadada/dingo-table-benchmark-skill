@@ -1,0 +1,31 @@
+{
+  "manifest": "manifest.json",
+  "output": "runs/experiment-001",
+  "prompt": "Transcribe all visible tables into HTML. Preserve every row, column, empty cell, rowspan and colspan. Return HTML only; do not invent unreadable content.",
+  "models": [
+    {
+      "id": "vision-api-example",
+      "adapter": "openai-chat",
+      "model": "YOUR_MODEL_NAME",
+      "endpoint_env": "TABLE_API_BASE",
+      "api_key_env": "TABLE_API_KEY",
+      "parameters": {
+        "max_tokens": 4096
+      },
+      "timeout_seconds": 900
+    },
+    {
+      "id": "custom-model-example",
+      "adapter": "command",
+      "argv": [
+        "python",
+        "/absolute/path/to/your_adapter.py"
+      ],
+      "parameters": {
+        "checkpoint": "YOUR_CHECKPOINT",
+        "max_pixels": 1048576
+      },
+      "timeout_seconds": 900
+    }
+  ]
+}

@@ -14,9 +14,9 @@ manifest 每条至少包含：sample_id、problem_ids、problem_categories、sou
 
 原则参考 OmniDocBench 的表格裁剪评测以及 PubTabNet、FinTabNet、PubTables-1M 的表格识别任务；300 DPI 是本项目设置，不宣称这些数据集都采用同一 DPI。CC-OCR 原图可能含表外内容，使用前逐图核验边界。
 
-## Astra 候选与复核
+## 可配置模型候选与复核
 
-用户指定时用 `gpt-6-astra`，请求必须真正包含原图，保存原始响应、模型标识、参数、finish_reason、时间与用量。提示应要求：只转录可见内容；输出所有表格分段；保留空格位与 rowspan/colspan；不能推算不可读数字；歧义单列。
+候选金标模型由用户选择；用户指定时用 `gpt-6-astra`，请求必须真正包含原图，保存原始响应、模型标识、参数、finish_reason、时间与用量。提示应要求：只转录可见内容；输出所有表格分段；保留空格位与 rowspan/colspan；不能推算不可读数字；歧义单列。
 
 建议 JSON：`{sample_id, html, tables, uncertainties, review_status, provenance}`。HTML 是评分源；JSON 保存溯源、复核证据和结构元信息，不另外维护易失同步的第二份正文。
 
